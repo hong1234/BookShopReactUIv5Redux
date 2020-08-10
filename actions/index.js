@@ -1,32 +1,7 @@
 import { ADD_REVIEW, ADD_BOOK, FETCH_DATA } from './types';
 import axios from 'axios';
 
-//const apiUrl = 'http://localhost:8000/api/books/search?title=';
-
 const apiUrl = 'http://localhost:8000/api/books';
-
-// export const deletePostSuccess = id => {
-//   return {
-//     type: DELETE_POST,
-//     payload: {
-//       id
-//     }
-//   }
-// }
-
-// export const deletePost = id => {
-//   return (dispatch) => {
-//     return axios.delete(`${apiUrl}/${id}`)
-//       .then(response => {
-//         dispatch(deletePostSuccess(id))
-//       })
-//       .catch(error => {
-//         throw(error);
-//       });
-//   };
-// };
-
-////////////
 
 export const fetchBooks = (data) => {
   return {
@@ -61,7 +36,7 @@ export const addReview = (bookId, review) => {
     headers: { 'Content-Type': 'application/json' }
   };
   return (dispatch) => {
-    return axios.post(`${apiUrl}/${bookId}/reviews`, review, options) //axios.post(`${apiUrl}`, {title, body})
+    return axios.post(`${apiUrl}/${bookId}/reviews`, review, options)
       .then(response => {
         dispatch(addReviewSuccess(bookId, response.data))
       })

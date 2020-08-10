@@ -20,7 +20,7 @@ export default class Book extends Component {
       	content: this.state.content
       };    
       this.props.addBook(book);
-      // this.props.hideReviewForm();
+
       this.setState({
         title: '',
         content: ''
